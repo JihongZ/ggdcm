@@ -35,6 +35,8 @@ Imports:
   stringr,
   tibble,
   tidygraph
+Suggests:
+  testthat
 VignetteBuilder:
   knitr
 Encoding: UTF-8
