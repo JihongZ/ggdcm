@@ -48,7 +48,7 @@ ggdcm <- function(.tdy_dag, int.vars = NULL, lat.vars = NULL,
   }
   # initialize the coordinates
   int.vars.x = 1:length(int.vars)
-  lat.vars.x =  (length(int.vars)-1) / (length(lat.vars):1)
+  lat.vars.x = seq(from = 1.2, to = length(int.vars)-1, length.out = length(lat.vars))
   names(int.vars.x) = int.vars
   names(lat.vars.x) = lat.vars
   int.vars.y = rep(0, length(int.vars))
@@ -76,4 +76,5 @@ ggdcm <- function(.tdy_dag, int.vars = NULL, lat.vars = NULL,
     ggraph::scale_edge_color_manual(values = c("#8F8F8F", "#0072B2"), na.value = "grey80")
 
 }
+
 
