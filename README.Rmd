@@ -6,10 +6,7 @@ output: github_document
 
 ## Usage
 ```{r}
-library(tidyverse)
 library(ggdcm)
-library(ggdag)
-library(dagitty)
 dag.dcm  <- dagify(
  x1 ~ Attr1 + Attr2,
  x2 ~ Attr1,

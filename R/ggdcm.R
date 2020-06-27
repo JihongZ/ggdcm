@@ -10,6 +10,8 @@
 #' @param use_labels a string. Variable to use for `geom_dag_repel_label()`.
 #'   Default is `NULL`.
 #' @import tidyverse
+#' @import ggdag
+#' @import ggraph
 #' @return a `ggplot`
 #' @export
 #'
