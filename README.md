@@ -1,37 +1,30 @@
 
 # ggdcm
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
 ## Usage
 
 ``` r
-library(tidyverse)
-```
-
-    ## ── Attaching packages ─────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
-
-    ## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
-    ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
-    ## ✓ readr   1.3.1     ✓ forcats 0.5.0
-
-    ## ── Conflicts ────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
-
-``` r
 library(ggdcm)
-library(ggdag)
-```
-
-    ## 
-    ## Attaching package: 'ggdag'
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     filter
-
-``` r
+#> Loading required package: ggplot2
+library(tidyverse)
+#> ── Attaching packages ─────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+#> ✓ tibble  3.0.1     ✓ dplyr   1.0.0
+#> ✓ tidyr   1.1.0     ✓ stringr 1.4.0
+#> ✓ readr   1.3.1     ✓ forcats 0.5.0
+#> ✓ purrr   0.3.4
+#> ── Conflicts ────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+#> x dplyr::filter() masks stats::filter()
+#> x dplyr::lag()    masks stats::lag()
 library(dagitty)
+library(ggdag)
+#> 
+#> Attaching package: 'ggdag'
+#> The following object is masked from 'package:stats':
+#> 
+#>     filter
 dag.dcm  <- dagify(
  x1 ~ Attr1 + Attr2,
  x2 ~ Attr1,
@@ -43,11 +36,10 @@ dag.dcm  <- dagify(
  labels = c(Attr1 = "Multiplication", Attr2 = "Minus")
 )
 ggdcm(.tdy_dag = dag.dcm, use_labels = "label", int.vars = paste0("x", 1:7))
+#> Latent Variables' Names Automate Generated!
 ```
 
-    ## Latent Variables' Names Automate Generated!
-
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
 dtmrSyntax = dagify(
@@ -83,8 +75,7 @@ I22 ~ RU + PI
 int.varsname <- c( "I1", "I2", "I3", "I4", "I5", "I6", "I7", "I8a", "I8b", "I8c", "I9", "I10a", "I10b", "I10c", "I11", "I12", "I13", "I14", "I15a", "I15b", "I15c", "I16", "I17", "I18", "I21", "I22" )
 
 ggdcm(.tdy_dag = dtmrSyntax, int.vars = int.varsname)
+#> Latent Variables' Names Automate Generated!
 ```
 
-    ## Latent Variables' Names Automate Generated!
-
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />

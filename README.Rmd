@@ -2,11 +2,24 @@
 output: github_document
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
 # ggdcm
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 ## Usage
 ```{r}
 library(ggdcm)
+library(tidyverse)
+library(dagitty)
+library(ggdag)
 dag.dcm  <- dagify(
  x1 ~ Attr1 + Attr2,
  x2 ~ Attr1,
